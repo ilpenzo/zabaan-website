@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zabaan — Teach Your Child Conversational Farsi</title>
+  <meta name="description" content="Zabaan helps English-speaking children ages 8–12 learn conversational Farsi through listening, speaking, and fun conversations with family characters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #d4a24e;
+      --gold-light: #f0d48a;
+      --teal: #1a6b6a;
+      --teal-dark: #124e4d;
+      --terracotta: #c46d4a;
+      --terracotta-light: #e8a98a;
+      --cream: #fdf6ec;
+      --cream-dark: #f5e6cd;
+      --text: #2c2421;
+      --text-light: #5a4a42;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(253, 246, 236, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-dark);
+      z-index: 100;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 500px;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .hero .audience {
+      font-size: 0.95rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+    }
+
+    .store-badges {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .store-badges a {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .store-badges a:hover {
+      background: var(--teal-dark);
+    }
+
+    /* Decorative divider */
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Features */
+    .features {
+      background: #fff;
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .features-list {
+      list-style: none;
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--cream);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .feature-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .feature-text p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* Support */
+    #support {
+      text-align: center;
+    }
+
+    #support h2 {
+      font-size: 2rem;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+
+    #support p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+
+    #support a {
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid var(--gold-light);
+      transition: border-color 0.2s;
+    }
+
+    #support a:hover {
+      border-color: var(--gold);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--cream-dark);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    footer .footer-links {
+      margin-bottom: 0.75rem;
+    }
+
+    footer .footer-links a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.75rem;
+    }
+
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .tagline {
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 3.5rem 1.25rem;
+      }
+
+      .features {
+        padding: 2rem 1.25rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Zabaan</a>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <h1>Zabaan</h1>
+  <p class="tagline">Teach your child conversational Farsi through listening, speaking, and fun conversations</p>
+  <p class="audience">For English-speaking children ages 8–12 with Farsi-heritage families</p>
+  <div class="store-badges">
+    <!-- Replace # with actual App Store URL when available -->
+    <a href="#">App Store</a>
+    <!-- Replace # with actual Play Store URL when available -->
+    <a href="#">Google Play</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="features">
+    <h2>How Zabaan Works</h2>
+    <div class="divider"></div>
+    <ul class="features-list">
+      <li>
+        <div class="feature-icon">&#x1f50a;</div>
+        <div class="feature-text">
+          <h3>Audio-first learning</h3>
+          <p>Learn by listening and speaking — the way language is naturally acquired.</p>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#x1f399;</div>
+        <div class="feature-text">
+          <h3>Pronunciation feedback</h3>
+          <p>Speech recognition listens to your child and helps them improve their accent.</p>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#x1f468;&#x200d;&#x1f469;&#x200d;&#x1f467;</div>
+        <div class="feature-text">
+          <h3>Conversations with family</h3>
+          <p>Practice with characters like Mamani (Grandma) and Amoo Reza (Uncle) in real-life scenarios.</p>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#x1f504;</div>
+        <div class="feature-text">
+          <h3>Spaced repetition</h3>
+          <p>Lessons are timed to help your child remember what they learn — for good.</p>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#x1f4f6;</div>
+        <div class="feature-text">
+          <h3>Works offline</h3>
+          <p>Download lessons and practice anywhere, no internet needed.</p>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#x1f512;</div>
+        <div class="feature-text">
+          <h3>Private and safe</h3>
+          <p>No ads, no accounts, no data collection. Built for kids, trusted by parents.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="support">
+  <h2>Support</h2>
+  <div class="divider"></div>
+  <p>For questions, feedback, or support, email us at <a href="mailto:support@zabaanapp.com">support@zabaanapp.com</a></p>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="#support">Support</a>
+  </div>
+  <p>&copy; 2026 Zabaan. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
